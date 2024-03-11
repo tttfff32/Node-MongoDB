@@ -1,0 +1,14 @@
+[
+    {
+        "name":"hut",
+        "price":"80"
+    },
+    {
+        "name":"neckless",
+        "price":"2000"
+    },
+    {
+        "name":"ring",
+        "price":"50"
+    }
+]
