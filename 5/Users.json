@@ -1,0 +1,17 @@
+[
+    {
+        "Name":"Chana Choen",
+        "BirthDate":"2000",
+        "Status":"Employee"
+    },
+    {
+        "Name":"Israel Klain",
+        "BirthDate":"1998",
+        "Status":"unemployed"
+    },
+    {
+        "Name":"Yehuda Levi",
+        "BirthDate":"1985",
+        "Status":"Employee"
+    }
+]
