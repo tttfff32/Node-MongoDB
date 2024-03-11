@@ -1,0 +1,32 @@
+[
+    {
+        "id":"1",
+        "name":"Moshe",
+        "adress":"Jerusalem",
+        "birthYear":"2015"
+    },
+    {
+        "id":"2",
+        "name":"Chaim",
+        "adress":"Haifa",
+        "birthYear":"2014"
+    },
+    {
+        "id":"3",
+        "name":"Israel",
+        "adress":"Modiin",
+        "birthYear":"2010"
+    },
+    {
+        "id":"4",
+        "name":"Shimon",
+        "adress":"Ashdod",
+        "birthYear":"2018"
+    },
+    {
+        "id":"5",
+        "name":"Oriel",
+        "adress":"Netivot",
+        "birthYear":"2020"
+    }
+]

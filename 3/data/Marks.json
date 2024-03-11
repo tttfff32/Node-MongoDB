@@ -1,0 +1,32 @@
+[
+    {
+        "id":"1",
+        "Chumash":80,
+        "Gmara":90,
+        "Navee":85
+    },
+    {
+        "id":"2",
+        "Chumash":70,
+        "Gmara":100,
+        "Navee":55
+    },
+    {
+        "id":"3",
+        "Chumash":80,
+        "Gmara":90,
+        "Navee":90
+    },
+    {
+        "id":"4",
+        "Chumash":88,
+        "Gmara":90,
+        "Navee":85
+    },
+    {
+        "id":"5",
+        "Chumash":95,
+        "Gmara":90,
+        "Navee":100
+    }
+]
