@@ -1,0 +1,22 @@
+[
+  {
+    "prodid": "1",
+    "prodName": "fridgider",
+    "category": "Appliances"
+  },
+  {
+    "prodid": "2",
+    "prodName": "book2",
+    "category": "Books"
+  },
+  {
+    "prodid": "3",
+    "prodName": "house",
+    "category": "Apartments"
+  },
+  {
+    "prodid": "10",
+    "prodName": "volvo",
+    "category": "Cars"
+  }
+]
