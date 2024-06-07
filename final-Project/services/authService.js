@@ -23,11 +23,18 @@ exports.authenticateUser = async (username, password) => {
     return null; // החזרת null במידה והמשתמש לא נמצא
   }
 
-  const isMatch = await bcrypt.compare(password, user.password); // השוואת הסיסמאות
-  if (!isMatch) {
-    return null; // החזרת null במידה והסיסמאות לא תואמות
+ bcrypt.compare(password, user.password, (err, result) =>{
+
+  if (err) {
+    return null; 
   }
 
-  const token = jwt.sign({ id: user._id, role: user.role }, 'your_jwt_secret', { expiresIn: '1h' }); // יצירת טוקן JWT
+  if (result){
+    console.log('Passwords match! User authenticated.');
+  }
+
+ }); 
+
+  const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1h' }); // יצירת טוקן JWT
   return token;
 };
