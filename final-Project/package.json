@@ -4,21 +4,29 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint .eslint.config.js ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "This is a RESTful API for managing a small business, built with Node.js, Express, and MongoDB.",
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
+    "eslint": "^9.4.0",
     "express": "^4.19.2",
     "jest": "^29.7.0",
     "jsonwebtoken": "^9.0.2",
     "log4js": "^6.9.1",
     "mongoose": "^8.4.1",
-    "multer": "^1.4.5-lts.1"
+    "multer": "^1.4.5-lts.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "directories": {
+    "test": "tests"
   }
 }
