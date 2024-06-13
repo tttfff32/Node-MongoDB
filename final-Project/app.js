@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authRoutes');
 const businessRoutes = require('./routes/businessRoutes');
 const productRoutes = require('./routes/productRoutes');
+const meetingRoutes = require('./routes/meetingRoutes');
 const swaggerApp = require('./swagger'); 
 
 
@@ -25,6 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/auth', authRoutes);
 app.use('/api/business', businessRoutes);
 app.use('/api/products', productRoutes);
+app.use('/api/meetings', meetingRoutes);
 
 app.use((err, req, res, next) => {
     logger.error(err.stack);
