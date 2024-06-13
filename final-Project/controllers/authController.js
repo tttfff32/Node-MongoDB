@@ -3,7 +3,7 @@ const authService = require('../services/authService');
 // פונקציה לרישום משתמש חדש
 exports.signup= async (req, res) => {
   const { username, password, role } = req.body; // שליפת הנתונים מבקשת ה-POST
-  console.log('Received data:', req.body); // הדפסת הנתונים לבדיקה
+  console.log('Received data:', req.body); 
 
   if (!username || !password) { // בדיקה האם המשתמש או הסיסמא ריקים
     return res.status(400).json({ message: 'Username and password are required' }); // החזרת הודעת שגיאה במידה וכן
@@ -21,7 +21,7 @@ exports.signup= async (req, res) => {
 // פונקציה להתחברות משתמש קיים
 exports.login = async (req, res) => {
   const { username, password } = req.body; // שליפת הנתונים מבקשת ה-POST
-  console.log('Login data:', req.body); // הדפסת הנתונים לבדיקה
+  console.log('Login data:', req.body); 
 
   if (!username || !password) { // בדיקה האם המשתמש או הסיסמא ריקים
     return res.status(400).json({ message: 'Username and password are required' }); // החזרת הודעת שגיאה במידה וכן

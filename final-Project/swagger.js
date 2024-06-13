@@ -9,28 +9,28 @@ const options = {
     info: {
       title: 'Business Management API',
       version: '1.0.0',
-      description: 'API for managing businesses, products, and meetings'
+      description: 'API for managing businesses, products, and meetings',
     },
     components: {
       securitySchemes: {
         bearerAuth: {
           type: 'http',
           scheme: 'bearer',
-          bearerFormat: 'JWT'
-        }
-      }
+          bearerFormat: 'JWT',
+        },
+      },
     },
     security: [{
-      bearerAuth: []
+      bearerAuth: [],
     }],
     servers: [
       {
         url: 'http://localhost:3000',
-        description: 'Local server'
-      }
-    ]
+        description: 'Local server',
+      },
+    ],
   },
-  apis: ['./routes/*.js'] // Path to the API docs
+  apis: ['./routes/*.js'], // Path to the API docs
 };
 
 

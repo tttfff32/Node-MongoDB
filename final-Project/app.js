@@ -8,16 +8,14 @@ const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authRoutes');
 const businessRoutes = require('./routes/businessRoutes');
 const productRoutes = require('./routes/productRoutes');
-const swaggerApp = require('./swagger'); // ייבוא קובץ swagger.js
-
-
+const swaggerApp = require('./swagger'); 
 
 
 
 const logger = log4js.getLogger();
 logger.level = process.env.LOG_LEVEL || 'info';
 
-// Middleware
+
 app.use('/', swaggerApp);
 app.use(cors());
 app.use(bodyParser.json());
@@ -37,3 +35,5 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
     logger.info(`Server is running on http://localhost:${port}`);
 });
+
+module.exports = app;

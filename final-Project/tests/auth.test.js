@@ -1,40 +1,32 @@
-const jest=require('jest');
-const app = require('../app');
-const expect = chai.expect;
-
-chai.use(chaiHttp);
+const { test, expect, describe } = require('@jest/globals');
+const request = require('supertest');
+const app = require('../app'); 
 
 describe('Auth API', () => {
-  it('should register a new user', (done) => {
-    chai.request(app)
-      .post('/auth/signup')
-      .send({ username: 'testuser', password: '123456', role: 'user' })
-      .end((err, res) => {
-        expect(res).to.have.status(201);
-        expect(res.body).to.have.property('message', 'User created');
-        done();
-      });
+  test('should register a new user', async () => {
+    const res = await request(app)
+      .post('api/auth/signup')
+      .send({ username: 'testuser', password: '123456', role: 'user' });
+
+    expect(res.status).toBe(201);
+    expect(res.body).toHaveProperty('message', 'User created');
   });
 
-  it('should login an existing user', (done) => {
-    chai.request(app)
-      .post('/auth/login')
-      .send({ username: 'testuser', password: '123456' })
-      .end((err, res) => {
-        expect(res).to.have.status(200);
-        expect(res.body).to.have.property('token');
-        done();
-      });
+  test('should login an existing user', async () => {
+    const res = await request(app)
+      .post('api/auth/login')
+      .send({ username: 'testuser', password: '123456' });
+
+    expect(res.status).toBe(200);
+    expect(res.body).toHaveProperty('token');
   });
 
-  it('should not login with invalid credentials', (done) => {
-    chai.request(app)
-      .post('/auth/login')
-      .send({ username: 'testuser', password: 'wrongpassword' })
-      .end((err, res) => {
-        expect(res).to.have.status(401);
-        expect(res.body).to.have.property('message', 'Invalid credentials');
-        done();
-      });
+  test('should not login with invalid credentials', async () => {
+    const res = await request(app)
+      .post('api/auth/login')
+      .send({ username: 'testuser', password: 'wrongpassword' });
+
+    expect(res.status).toBe(401);
+    expect(res.body).toHaveProperty('message', 'Invalid credentials');
   });
 });
