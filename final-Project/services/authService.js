@@ -4,11 +4,10 @@ const jwt = require('jsonwebtoken');
 
 // פונקציה ליצירת משתמש חדש
 exports.createUser = async (username, password, role) => {
-  const hashedPassword = await bcrypt.hash(password, 10); // הצפנת הסיסמא
-  const user = new User({ username, password: hashedPassword, role }); // יצירת אובייקט משתמש חדש
-
   try {
-    await user.save(); // שמירת המשתמש בבסיס הנתונים
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const user = new User({ username, password: hashedPassword, role });
+    await user.save();
     return user;
   } catch (error) {
     console.error('Error saving user:', error);
@@ -18,23 +17,19 @@ exports.createUser = async (username, password, role) => {
 
 // פונקציה לאימות משתמש קיים
 exports.authenticateUser = async (username, password) => {
-  const user = await User.findOne({ username });
-  if (!user) {
-    return null; // החזרת null במידה והמשתמש לא נמצא
-  }
-
-  bcrypt.compare(password, user.password, (err, result) => {
-
-    if (err) {
+  try {
+    const user = await User.findOne({ username });
+    if (!user) {
       return null;
     }
-
-    if (result) {
-      console.log('Passwords match! User authenticated.');
+    const match = await user.comparePassword(password);
+    if (match) {
+      const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
+      return token;
     }
-
-  });
-
-  const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1h' }); // יצירת טוקן JWT
-  return token;
+    return false; // אם הסיסמה אינה תואמת
+  } catch (error) {
+    console.error('Error authenticating user:', error);
+    return false;
+  }
 };
